@@ -21,12 +21,13 @@ class TablaSearch extends React.Component {
 		 * @type {Array}
 		 */
 		const productos = [
-			{category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
+			{category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football 5'},
 		  	{category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball'},
 		  	{category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball'},
 		  	{category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch'},
 		  	{category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5'},
-		  	{category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
+		  	{category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'},
+		  	{category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexús 7'}
 		];
 
 		const rows = [];
@@ -41,9 +42,14 @@ class TablaSearch extends React.Component {
 		 * @return  {[type]}          [description]
 		 */
 		productos.forEach((product) => {
-	    	if (product.name.indexOf(filterText) === -1) {
+			/* Vamos a formatear para no tener conflictos al momento de realizar busquedas
+			 * con entradas en Mayusculas, Minusculas y Acentos
+			 * Formateamos a mayuscula todo
+			*/
+	    	if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
 	        	return;
 	      	}
+
 		    rows.push(product);
 	    });
 		
