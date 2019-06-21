@@ -6,6 +6,10 @@ import TablaSearch from './TablaSearch';
 class FiltroBusqueda extends React.Component {
 	constructor(props){
 		super(props);
+		/**
+		 * Estado por default
+		 * @type {Object}
+		 */
 		this.state = {
 			filterText: ''
 		}
@@ -19,6 +23,13 @@ class FiltroBusqueda extends React.Component {
 	}
 
 	render(){
+		/**	
+		 * Template
+		 * Input search
+		 * Checkbox
+		 * Tabla
+		 * @type {[type]}
+		 */
 		const template = 
 			<section id="contenedorApp">
 				<HeaderSearch 
@@ -26,7 +37,9 @@ class FiltroBusqueda extends React.Component {
 					cambioFilterTextChange 	={this.filterTextChange} 
 				/>
 				<SubHeaderSearch />
-				<TablaSearch products={this.props.products} />
+				<TablaSearch  
+          			filterText 	={this.state.filterText} 
+          		/>
 			</section>
 		;
 

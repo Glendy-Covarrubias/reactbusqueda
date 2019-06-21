@@ -1,21 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
-// import HeaderSearch from './HeaderSearch';
-// import SubHeaderSearch from './SubHeaderSearch';
-// import TablaSearch from './TablaSearch';
 import FiltroBusqueda from './FiltroBusqueda';
 import * as serviceWorker from './serviceWorker';
 
-// Inicando
-// ReactDOM.render(<HeaderSearch />, document.getElementById('contendHeader'));
-// ReactDOM.render(<SubHeaderSearch />, document.getElementById('contendSubHeader'));
-// ReactDOM.render(<TablaSearch />, document.getElementById('contendTabla'));
-
-// ReactDOM.render(<App />, document.getElementById('root'));
-
-// Final
+/**	
+ * Renderizar el componente a la vista del Index
+ */
 ReactDOM.render(<FiltroBusqueda />, document.getElementById('contenedorGral'));
 
 

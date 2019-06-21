@@ -10,6 +10,16 @@ import { FaCoins } from 'react-icons/fa';
 
 class TablaSearch extends React.Component {
 	render(){
+		/**
+		 * Pedidomos la propiedad del input de busqueda para poder filtrar
+		 * @type {[type]}
+		 */
+		const filterText = this.props.filterText;
+
+		/**
+		 * Nuestro array de productos ya que por el momento no consumo ninguna api
+		 * @type {Array}
+		 */
 		const productos = [
 			{category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
 		  	{category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball'},
@@ -19,24 +29,45 @@ class TablaSearch extends React.Component {
 		  	{category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
 		];
 
+		const rows = [];
+
 		/**
-		 * Funcion que permite recorrer el objeto para formar el body de la tabla
+		 * Determinamos la entrada de lo que captura en el filtro de busqueda
 		 *
 		 * @author 🏅 Glendy Covarrubias <glendycovarrubias@hotmail.com>
-		 * date 2019-06-20
+		 * date 2019-06-21
 		 * @version [1.0]
-		 * @param   {[type]} (producto, key           [description]
-		 * @return  {[type]}            [description]
+		 * @param   {[type]} (product [description]
+		 * @return  {[type]}          [description]
 		 */
-		const listItemsBody = productos.map((producto, key) =>
-			/** Siempre dentro de un element padre Recordar eso */
+		productos.forEach((product) => {
+	    	if (product.name.indexOf(filterText) === -1) {
+	        	return;
+	      	}
+		    rows.push(product);
+	    });
+		
+		/**
+		 * Busqueda del catalogo de productos
+		 *
+		 * @author 🏅 Glendy Covarrubias <glendycovarrubias@hotmail.com>
+		 * date 2019-06-21
+		 * @version [1.1] Version dinamica busqueda funcionalidad
+		 * @param   {[type]} (row, key           [description]
+		 * @return  {[type]}       [description]
+		 */
+		const listItemsBody = rows.map((row, key) =>
 			<tr key={key}>
-				<Filas value={producto.name}/>
-				<Filas value={producto.category}/>
-				<Filas value={producto.price} />
+				<Filas value={row.name} />
+				<Filas value={row.category} />
+				<Filas value={row.price} />
 			</tr>
-		);
+		)
 
+		/**
+		 * Template de la tabla de catalogo de productos
+		 * @type {[type]}
+		 */
 		const template = 
 			<Table striped bordered hover>
 				<thead>
