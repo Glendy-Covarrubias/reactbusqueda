@@ -10,11 +10,9 @@ import { FaCoins } from 'react-icons/fa';
 
 class TablaSearch extends React.Component {
 	render(){
-		/**
-		 * Pedidomos la propiedad del input de busqueda para poder filtrar
-		 * @type {[type]}
-		 */
-		const filterText = this.props.filterText;
+	
+		const filterText = this.props.filterText; //Pedidomos la propiedad del input de busqueda para poder filtrar
+		const stock 	 = this.props.stock; //Pedimos la propiedad del check para poder filtrar
 
 		/**
 		 * Nuestro array de productos ya que por el momento no consumo ninguna api
@@ -49,6 +47,11 @@ class TablaSearch extends React.Component {
 	    	if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
 	        	return;
 	      	}
+
+	      	/* Valida que registros va mostrar con respecto al value del check */
+	      	if (stock && !product.stocked) {
+        		return;
+      		}
 
 		    rows.push(product);
 	    });

@@ -11,14 +11,25 @@ class FiltroBusqueda extends React.Component {
 		 * @type {Object}
 		 */
 		this.state = {
-			filterText: ''
+			filterText 	: '',
+			stock 		: false
 		}
-		this.filterTextChange = this.filterTextChange.bind(this);
+
+		this.filterTextChange 	= this.filterTextChange.bind(this); //Filtro de busqueda
+		this.checkStock			= this.checkStock.bind(this); //Checkbox de stock
 	}
 
+	/* Busqueda de Filtro	 */
 	filterTextChange(filterText){
 		this.setState({
 			filterText: filterText
+		});
+	}
+
+	/* Checkbox de stock */
+	checkStock(stock){
+		this.setState({
+			stock: !this.state.stock
 		});
 	}
 
@@ -36,9 +47,13 @@ class FiltroBusqueda extends React.Component {
 					filterText 			    ={this.state.filterText} 
 					cambioFilterTextChange 	={this.filterTextChange} 
 				/>
-				<SubHeaderSearch />
+				<SubHeaderSearch 
+					stock = {this.state.stock}
+					cambioCheckCheckboxChange ={this.checkStock}
+				/>
 				<TablaSearch  
-          			filterText 	={this.state.filterText} 
+          			filterText 	= {this.state.filterText}
+          			stock 		= {this.state.stock} 
           		/>
 			</section>
 		;
