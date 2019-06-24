@@ -16,7 +16,7 @@ class FiltroBusqueda extends React.Component {
 		}
 
 		this.filterTextChange 	= this.filterTextChange.bind(this); //Filtro de busqueda
-		this.checkStock			= this.checkStock.bind(this); //Checkbox de stock
+		this.checkStock			= this.checkStock.bind(this); //Checkbox de stock		
 	}
 
 	/* Busqueda de Filtro	 */
