@@ -94,7 +94,7 @@ class TablaSearch extends React.Component {
         		return;
       		}		    
 
-      		if(product.pag != this.state.pag){
+      		if(product.pag !== this.state.pag){
       			return; //Reparar los filtros de busqueda y stock con la paginacion PENDIENTE
       		}
 
